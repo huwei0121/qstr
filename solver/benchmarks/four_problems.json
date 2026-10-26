@@ -1,0 +1,195 @@
+{
+  "schema_version": 1,
+  "description": "Portable problem and comparison catalog; historical shared pairing labels, not unseen confirmation data.",
+  "seeds": [
+    7098473,
+    7133128,
+    7155324,
+    7221652,
+    7227177,
+    7234180,
+    7275113,
+    7717921,
+    7718935,
+    7903469,
+    7905719,
+    7963622,
+    7972713,
+    7983024,
+    8046382,
+    8161747,
+    8254603,
+    8339442,
+    8444718,
+    8463689,
+    8527566,
+    8621104,
+    8714567,
+    8721552,
+    8735051,
+    8764868,
+    8821601,
+    8835577,
+    8873583,
+    8928213
+  ],
+  "problems": [
+    {
+      "name": "pulse_calibration",
+      "max_evaluations": 1000,
+      "evaluation_cost": {
+        "amount": 40,
+        "unit": "exact_probability_circuits"
+      },
+      "methods": [
+        {
+          "name": "qstr",
+          "options": {
+            "preset": "pulse_calibration"
+          }
+        },
+        {
+          "name": "cma_es",
+          "options": {
+            "sigma": 0.006,
+            "popsize": 10
+          }
+        },
+        {
+          "name": "nelder_mead",
+          "options": {
+            "initial_simplex_radius": 0.2,
+            "orientation": "random",
+            "adaptive": false
+          }
+        },
+        {
+          "name": "powell",
+          "options": {
+            "xtol": 0.0001,
+            "ftol": 0.0
+          }
+        },
+        {
+          "name": "differential_evolution",
+          "options": {
+            "sigma": 0.02807737224936059,
+            "popsize": 23,
+            "mutation": 0.22731999326463048,
+            "recombination": 0.5311400792442849
+          }
+        },
+        {
+          "name": "one_plus_one",
+          "options": {
+            "sigma": 0.035510250614371366
+          }
+        },
+        {
+          "name": "simulated_annealing",
+          "options": {
+            "sigma": 0.005,
+            "temperature": 0.2,
+            "gamma": 0.99
+          }
+        }
+      ],
+      "description": "Three-level Duffing pulse calibration: 82 PWC parameters, fresh 40-circuit exact probabilities; six published algorithm families with recorded reconstruction settings."
+    },
+    {
+      "name": "qaoa_maxcut",
+      "max_evaluations": 550,
+      "evaluation_cost": {
+        "amount": 1000,
+        "unit": "shots"
+      },
+      "methods": [
+        {
+          "name": "qstr",
+          "options": {
+            "preset": "qaoa_maxcut"
+          }
+        },
+        {
+          "name": "anatra",
+          "options": {
+            "coordinate_transform": "identity"
+          }
+        },
+        {
+          "name": "pybobyqa",
+          "options": {
+            "coordinate_transform": "identity"
+          }
+        },
+        {
+          "name": "imfil",
+          "options": {
+            "coordinate_transform": "identity"
+          }
+        },
+        {
+          "name": "nomad",
+          "options": {
+            "coordinate_transform": "identity"
+          }
+        },
+        {
+          "name": "spsa",
+          "options": {
+            "coordinate_transform": "identity"
+          }
+        }
+      ],
+      "description": "K3,2 MaxCut QAOA, depth 5, ten angles initialized at zero, 1000 shots per call. Fixed baseline API and NOMAD version adaptations are retained."
+    },
+    {
+      "name": "gate_calibration",
+      "max_evaluations": 100,
+      "evaluation_cost": {
+        "amount": 25000,
+        "unit": "shots"
+      },
+      "methods": [
+        {
+          "name": "qstr",
+          "options": {
+            "preset": "gate_calibration"
+          }
+        },
+        {
+          "name": "cma_es",
+          "options": {
+            "population_size": 25,
+            "initial_spread": 0.1,
+            "evaluate_initial_point": false
+          }
+        }
+      ],
+      "description": "Three-control calibration on the two-qubit device reconstruction, 25 circuits and 1000 shots per circuit."
+    },
+    {
+      "name": "ising_state_transfer",
+      "max_evaluations": 2000,
+      "evaluation_cost": {
+        "amount": 1,
+        "unit": "physical_propagations"
+      },
+      "methods": [
+        {
+          "name": "qstr",
+          "options": {
+            "preset": "ising_state_transfer"
+          }
+        },
+        {
+          "name": "dcrab",
+          "options": {
+            "amplitude_variation": 10
+          }
+        }
+      ],
+      "description": "Five-qubit Ising state transfer with Gaussian coupling noise; 100 pulse bins and full dCRAB baseline."
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "platform": "Windows x64",
+  "python": "3.10.22",
+  "installation": "Four new environments in an independent directory outside the research checkout; pinned constraints reapplied successfully",
+  "runtimes": {
+    "analysis": {
+      "installed": true,
+      "pip_check": "passed",
+      "lock": "requirements/locks/windows-x86_64-analysis.txt"
+    },
+    "pulse": {
+      "installed": true,
+      "pip_check": "passed",
+      "lock": "requirements/locks/windows-x86_64-pulse.txt"
+    },
+    "qaoa": {
+      "installed": true,
+      "pip_check": "passed",
+      "lock": "requirements/locks/windows-x86_64-qaoa.txt"
+    },
+    "gate": {
+      "installed": true,
+      "pip_check": "passed",
+      "lock": "requirements/locks/windows-x86_64-gate.txt"
+    }
+  },
+  "smoke": {
+    "runs": 17,
+    "completed": 17,
+    "cases": [
+      {
+        "problem": "qaoa_maxcut",
+        "method": "spsa",
+        "seed": 20261026,
+        "nfev": 64
+      },
+      {
+        "problem": "qaoa_maxcut",
+        "method": "qstr",
+        "seed": 20261026,
+        "nfev": 64
+      },
+      {
+        "problem": "qaoa_maxcut",
+        "method": "pybobyqa",
+        "seed": 20261026,
+        "nfev": 64
+      },
+      {
+        "problem": "qaoa_maxcut",
+        "method": "nomad",
+        "seed": 20261026,
+        "nfev": 64
+      },
+      {
+        "problem": "qaoa_maxcut",
+        "method": "imfil",
+        "seed": 20261026,
+        "nfev": 64
+      },
+      {
+        "problem": "qaoa_maxcut",
+        "method": "anatra",
+        "seed": 20261026,
+        "nfev": 64
+      },
+      {
+        "problem": "pulse_calibration",
+        "method": "simulated_annealing",
+        "seed": 20261026,
+        "nfev": 64
+      },
+      {
+        "problem": "pulse_calibration",
+        "method": "qstr",
+        "seed": 20261026,
+        "nfev": 64
+      },
+      {
+        "problem": "pulse_calibration",
+        "method": "powell",
+        "seed": 20261026,
+        "nfev": 64
+      },
+      {
+        "problem": "pulse_calibration",
+        "method": "one_plus_one",
+        "seed": 20261026,
+        "nfev": 64
+      },
+      {
+        "problem": "pulse_calibration",
+        "method": "nelder_mead",
+        "seed": 20261026,
+        "nfev": 64
+      },
+      {
+        "problem": "pulse_calibration",
+        "method": "differential_evolution",
+        "seed": 20261026,
+        "nfev": 64
+      },
+      {
+        "problem": "pulse_calibration",
+        "method": "cma_es",
+        "seed": 20261026,
+        "nfev": 64
+      },
+      {
+        "problem": "ising_state_transfer",
+        "method": "qstr",
+        "seed": 20261026,
+        "nfev": 64
+      },
+      {
+        "problem": "ising_state_transfer",
+        "method": "dcrab",
+        "seed": 20261026,
+        "nfev": 64
+      },
+      {
+        "problem": "gate_calibration",
+        "method": "qstr",
+        "seed": 20261026,
+        "nfev": 30
+      },
+      {
+        "problem": "gate_calibration",
+        "method": "cma_es",
+        "seed": 20261026,
+        "nfev": 30
+      }
+    ]
+  },
+  "full_budget": {
+    "runs": 4,
+    "matched_exactly": 4,
+    "paid_queries": 3609,
+    "evidence": "clean_full_budget_equivalence.json"
+  },
+  "tests": {
+    "analysis": 4,
+    "launcher": 2,
+    "comparison": 1,
+    "qaoa_protocol": 4,
+    "pulse_ising_models": 3,
+    "total_passed": 14
+  },
+  "reaggregation": {
+    "records": 510,
+    "curves": 17,
+    "means_quartiles_coordinates_exact": true,
+    "figure_visually_checked": true
+  },
+  "resume": {
+    "incomplete_attempt_preserved": true,
+    "retry_completed": true,
+    "completed_record_unchanged_on_resume": true
+  },
+  "packaged_benchmark_assets": {
+    "files_checked": 42,
+    "missing": 0
+  },
+  "frozen_source_files_unchanged": 6,
+  "scope": "All methods smoke-tested; one full-budget Q-STR seed per problem rerun. The 510 archived reference runs were reanalyzed, not all rerun."
+}

@@ -1,0 +1,142 @@
+{
+  "problem": "gate_calibration",
+  "upstream_commit": "48b7917eb8d84e1471ff9fb911129c354e752dbf",
+  "runtime": {
+    "python": "3.10",
+    "numpy": "1.26.4",
+    "scipy": "1.11.4",
+    "tensorflow": "2.15.0",
+    "cma": "3.3.0",
+    "cobyqa": "1.1.4"
+  },
+  "migration_equivalence": {
+    "model_checks": [
+      {
+        "x": [
+          -0.054559463003214105,
+          0.08264154056073997,
+          -0.11956622745212653
+        ],
+        "circuits": 12,
+        "maximum_probability_difference": 0.0
+      },
+      {
+        "x": [
+          -0.04955946300321411,
+          0.08364154056073997,
+          -0.11656622745212653
+        ],
+        "circuits": 12,
+        "maximum_probability_difference": 0.0
+      }
+    ],
+    "sampling_checks": {
+      "evaluations": 2,
+      "circuits": 50,
+      "shots": 50000,
+      "identical_counts": true
+    },
+    "cma_checks": [
+      {
+        "budget": 25,
+        "evaluations": 25,
+        "complete_generations": 1,
+        "identical": true
+      },
+      {
+        "budget": 30,
+        "evaluations": 30,
+        "complete_generations": 1,
+        "identical": true
+      },
+      {
+        "budget": 50,
+        "evaluations": 50,
+        "complete_generations": 2,
+        "identical": true
+      },
+      {
+        "budget": 61,
+        "evaluations": 61,
+        "complete_generations": 2,
+        "identical": true
+      }
+    ],
+    "reference_code_sha256": {
+      "model": "5c1034d3abf9a6d36665def54743de7c37776d8952fa1666953d0f8fdd7f420d",
+      "sampling_oracle": "da6625f4d7f6396961102b93267a3a6fbadd29ae603e44f0b1ad5adc29b3a00f",
+      "cma_adapter": "0ae2d16605a37eef45f4718fb23bf8634ebe68d6505c67077e14143686f385f3"
+    }
+  },
+  "full_budget_qstr": {
+    "seed": 7098473,
+    "max_evaluations": 100,
+    "actual_evaluations": 98,
+    "shots": 2450000,
+    "validation_circuits": 4096,
+    "initial_quality": 0.4294356221103033,
+    "final_quality": 0.2254066546256517,
+    "identical_coordinates_feedback_counts_seeds_costs": true,
+    "identical_return_and_all_checkpoint_qualities": true,
+    "reference_result_sha256": "c71143b6e99265ed3049ab8094d4fedac852b1b9fe78e497139fc951bea87c9b",
+    "reference_history_sha256": "f1919081f9929cb2caae9a7fbdd7c1f34fb7487d0724c9cb7cafbb77f64198b6"
+  },
+  "smoke_runs": [
+    {
+      "method": "qstr",
+      "seed": 7098473,
+      "nfev": 30,
+      "status": "completed",
+      "initial_quality": 0.3867327834800729,
+      "final_quality": 0.21999451016804442,
+      "cost": {
+        "evaluations": 30,
+        "shots": 750000,
+        "circuits": 750,
+        "validation_circuits": 96,
+        "validation_operator_evaluations": 3,
+        "validation_shots": 0
+      },
+      "validation": {
+        "circuits": 32,
+        "seed": 9431057
+      }
+    },
+    {
+      "method": "cma_es",
+      "seed": 7098473,
+      "nfev": 30,
+      "status": "completed",
+      "initial_quality": 0.3867327834800729,
+      "final_quality": 0.3943757065953136,
+      "cost": {
+        "evaluations": 30,
+        "shots": 750000,
+        "circuits": 750,
+        "validation_circuits": 64,
+        "validation_operator_evaluations": 2,
+        "validation_shots": 0
+      },
+      "validation": {
+        "circuits": 32,
+        "seed": 9431057
+      }
+    }
+  ],
+  "vendored_wheel_build": {
+    "distribution": "c3_toolset-1.4-py3-none-any.whl",
+    "files": 49,
+    "c3_modules": 43,
+    "license_included": true,
+    "built_from_local_source": true
+  },
+  "source_sha256": {
+    "src/qstr_benchmarks/gate.py": "b56c1bb03a29686921b79f2a65a9f0788be8389cd7181a2b2f92c1f417d02c0c",
+    "src/qstr_benchmarks/gate_support/__init__.py": "47a92bdba1aa0ce0d2f60a02111fe87e5b5702797792838fa7f3cf06982f5120",
+    "src/qstr_benchmarks/gate_support/cma.py": "135f2d88a34625b3ee68a8adf2fe0391d74b2826d45ec805b7a8b2c8209bf4f8",
+    "src/qstr_benchmarks/gate_support/device_setup.py": "94c5da5134d67277fd9313794da9682f1d3c1979dbd9fdd8900cb5ce729323b5",
+    "src/qstr_benchmarks/gate_support/model.py": "fa569df5ccb55550d77eba12c1878032ccd714f50e44fa3c0b1378fb34758c9b",
+    "src/qstr_benchmarks/gate_support/oracle.py": "6e528c3ee0a5b85ca0f6e4c8559bafcc74779a288ef4587ad77a92e02ab4f945"
+  },
+  "scope": "Implementation migration; no new performance comparison. Full-budget run matches stored confirmation trajectory, point selection and all validation checkpoints."
+}

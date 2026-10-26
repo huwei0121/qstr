@@ -1,0 +1,37 @@
+{
+  "problem": "qaoa_maxcut",
+  "method": "qstr",
+  "configuration": {
+    "problem": "qaoa_maxcut",
+    "method": "qstr",
+    "seed": 7098473,
+    "max_evaluations": 550,
+    "checkpoint_interval": 25,
+    "shots_per_evaluation": 1000
+  },
+  "all_passed": true,
+  "query_cap": 550,
+  "actual_evaluations": 511,
+  "paid_shots": 511000,
+  "checkpoints": 22,
+  "coordinates_exact": true,
+  "count_histograms_exact": true,
+  "simulator_seeds_exact": true,
+  "observed_feedback_exact": true,
+  "estimated_variances_exact": true,
+  "native_endpoint_exact": true,
+  "checkpoint_recommendations_exact": true,
+  "checkpoint_qualities_exact": true,
+  "initial_quality": 3.000000000000001,
+  "final_quality": 0.12552239374469565,
+  "reference_file_sha256": {
+    "paid_history.json": "1567e4256619cb984bad8c0939479836fadd95d34751e9eba29b25d104f878c8",
+    "summary.json": "a1d149bb4f7f20b05118686248bd7926da509cd796f258ddef096e80c886b22f",
+    "frozen_recommendations.json": "a317bbdcea0e0279fc2917326eaa7997f7cb0d6a585c6f3ccfa1db4948fd58f9"
+  },
+  "thread_settings": {
+    "OMP_NUM_THREADS": 1,
+    "OPENBLAS_NUM_THREADS": 1,
+    "MKL_NUM_THREADS": 1
+  }
+}

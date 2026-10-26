@@ -1,0 +1,6 @@
+# Numerical stack used to check preservation of the recorded search trajectories.
+numpy==1.26.4
+scipy==1.11.4
+cobyqa==1.1.4
+cma==3.3.0
+pytest==8.3.5

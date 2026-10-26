@@ -1,0 +1,7 @@
+{
+  "space_in_output_path": true,
+  "method": "nomad",
+  "evaluations": 80,
+  "physical_history_exact": true,
+  "final_quality_exact": true
+}

@@ -1,0 +1,80 @@
+[
+  {
+    "path": "anatra/anatra.py",
+    "repository": "https://github.com/INFORMSJoC/2024.0578",
+    "revision": "42ed201f4f78ed79da5dcf8af1cfc6bd4daf78bd",
+    "sha256": "ad5612b632e5725e2663b437ea93d82b47eb887fba283f0462e6f1775a8d6e97"
+  },
+  {
+    "path": "anatra/lagrange_utils.py",
+    "repository": "https://github.com/INFORMSJoC/2024.0578",
+    "revision": "42ed201f4f78ed79da5dcf8af1cfc6bd4daf78bd",
+    "sha256": "2b3fb8ddda5ab9baabd182444d209e8f1d3188f7c9c035ce50777501a661ef06"
+  },
+  {
+    "path": "circuit/Sampled.py",
+    "repository": "https://github.com/INFORMSJoC/2024.0578",
+    "revision": "42ed201f4f78ed79da5dcf8af1cfc6bd4daf78bd",
+    "sha256": "36845a6b10d3675e152e812de79d4ab6bee7c330c717691d044eb698dcc5838e"
+  },
+  {
+    "path": "anatra/LICENSE",
+    "repository": "https://github.com/INFORMSJoC/2024.0578",
+    "revision": "42ed201f4f78ed79da5dcf8af1cfc6bd4daf78bd",
+    "sha256": "1d5e3e84c71539c79a82efd724f4b36e349ed1a9c64b9b21ae59c666ca946e10"
+  },
+  {
+    "path": "circuit/LICENSE",
+    "repository": "https://github.com/INFORMSJoC/2024.0578",
+    "revision": "42ed201f4f78ed79da5dcf8af1cfc6bd4daf78bd",
+    "sha256": "1d5e3e84c71539c79a82efd724f4b36e349ed1a9c64b9b21ae59c666ca946e10"
+  },
+  {
+    "path": "minq/getalp.py",
+    "repository": "https://github.com/POptUS/minq",
+    "revision": "local source hashes recorded",
+    "sha256": "fe75b8a68c131d9699b1cf2026577f43f381e49ddc2360f818f4e8e464a38986"
+  },
+  {
+    "path": "minq/ldldown.py",
+    "repository": "https://github.com/POptUS/minq",
+    "revision": "local source hashes recorded",
+    "sha256": "d697efea46ed702d08ecdc765dc6fcd8dc86ee796a5221fdbae72cd444fba3c8"
+  },
+  {
+    "path": "minq/ldlrk1.py",
+    "repository": "https://github.com/POptUS/minq",
+    "revision": "local source hashes recorded",
+    "sha256": "f66c9b5f78cbed7f43afe693e190e7a4ecb9ae8fc2eee214c5f3fbcef2d266bd"
+  },
+  {
+    "path": "minq/ldlup.py",
+    "repository": "https://github.com/POptUS/minq",
+    "revision": "local source hashes recorded",
+    "sha256": "24585071d5761885bb8a72d8dbd6716a9963bdbd929c00aae038d33d375612ae"
+  },
+  {
+    "path": "minq/minqsw.py",
+    "repository": "https://github.com/POptUS/minq",
+    "revision": "local source hashes recorded",
+    "sha256": "81229fe901e4e861cdfc10e606221d9cb866856ad7d331ad568250a45c266cef"
+  },
+  {
+    "path": "minq/pr01.py",
+    "repository": "https://github.com/POptUS/minq",
+    "revision": "local source hashes recorded",
+    "sha256": "ff9eefa554c274534f4d12f9580df07561bb15f6cb1ab490a7c8182090c1fb9b"
+  },
+  {
+    "path": "minq/LICENSE",
+    "repository": "https://github.com/POptUS/minq",
+    "revision": "local source hashes recorded",
+    "sha256": "febe4199762e3f0b60e3a27ec8eb412ae8e1244868c5f6b6fc92919ffa3d94c9"
+  },
+  {
+    "path": "input_check/checkinputss.py",
+    "repository": "https://github.com/POptUS/IBCDFO",
+    "revision": "359569c5da69881a52960784237b3f9205e65152",
+    "sha256": "7150615954800bcb22b7999ba575263931546ca2f38e764d7ec94a267a60cac3"
+  }
+]

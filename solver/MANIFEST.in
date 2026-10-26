@@ -1,0 +1,20 @@
+include README.md LICENSE pyproject.toml
+include requirements.txt requirements-reproducibility.txt
+recursive-include src/qstr *.py py.typed
+recursive-include docs *.md
+recursive-include examples *.py
+recursive-include benchmarks *.json
+prune tests
+include tests/test_qstr_solver.py tests/test_qstr_presets.py
+include tests/test_qstr_baselines.py tests/test_qstr_package.py
+include tools/check_distribution.py
+prune src/orbit_dfo
+prune experiments
+prune reports
+prune references
+prune refs
+prune results
+prune .external
+prune .scratch
+prune tests/research
+global-exclude __pycache__ *.py[cod]

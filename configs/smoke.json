@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "name": "installation_smoke",
+  "seeds": [
+    20261026
+  ],
+  "problems": {
+    "pulse_calibration": {
+      "runtime": "pulse",
+      "algorithms": [
+        {
+          "algorithm": "qstr",
+          "parameters": {
+            "preset": "pulse_calibration"
+          }
+        },
+        {
+          "algorithm": "cma_es",
+          "parameters": {
+            "sigma": 0.006,
+            "popsize": 10
+          }
+        },
+        {
+          "algorithm": "nelder_mead",
+          "parameters": {
+            "initial_simplex_radius": 0.2,
+            "orientation": "random",
+            "adaptive": false
+          }
+        },
+        {
+          "algorithm": "powell",
+          "parameters": {
+            "xtol": 0.0001,
+            "ftol": 0.0
+          }
+        },
+        {
+          "algorithm": "differential_evolution",
+          "parameters": {
+            "sigma": 0.02807737224936059,
+            "popsize": 23,
+            "mutation": 0.22731999326463048,
+            "recombination": 0.5311400792442849
+          }
+        },
+        {
+          "algorithm": "one_plus_one",
+          "parameters": {
+            "sigma": 0.035510250614371366
+          }
+        },
+        {
+          "algorithm": "simulated_annealing",
+          "parameters": {
+            "sigma": 0.005,
+            "temperature": 0.2,
+            "gamma": 0.99
+          }
+        }
+      ],
+      "checkpoint_interval": 64,
+      "observation": {
+        "cost_per_evaluation": 40,
+        "cost_unit": "exact_probability_circuits"
+      },
+      "description": "Three-level Duffing pulse calibration: 82 PWC parameters, fresh 40-circuit exact probabilities; six published algorithm families with recorded reconstruction settings.",
+      "max_evaluations": 64,
+      "validation": {
+        "holdout_circuits": 32
+      }
+    },
+    "qaoa_maxcut": {
+      "runtime": "qaoa",
+      "algorithms": [
+        {
+          "algorithm": "qstr",
+          "parameters": {
+            "preset": "qaoa_maxcut"
+          }
+        },
+        {
+          "algorithm": "anatra",
+          "parameters": {
+            "coordinate_transform": "identity"
+          }
+        },
+        {
+          "algorithm": "pybobyqa",
+          "parameters": {
+            "coordinate_transform": "identity"
+          }
+        },
+        {
+          "algorithm": "imfil",
+          "parameters": {
+            "coordinate_transform": "identity"
+          }
+        },
+        {
+          "algorithm": "nomad",
+          "parameters": {
+            "coordinate_transform": "identity"
+          }
+        },
+        {
+          "algorithm": "spsa",
+          "parameters": {
+            "coordinate_transform": "identity"
+          }
+        }
+      ],
+      "checkpoint_interval": 64,
+      "observation": {
+        "cost_per_evaluation": 1000,
+        "cost_unit": "shots",
+        "shots_per_evaluation": 1000
+      },
+      "description": "K3,2 MaxCut QAOA, depth 5, ten angles initialized at zero, 1000 shots per call. Fixed baseline API and NOMAD version adaptations are retained.",
+      "max_evaluations": 64,
+      "validation": {
+        "circuits": 32,
+        "quadrature_nodes": 8
+      }
+    },
+    "gate_calibration": {
+      "runtime": "gate",
+      "algorithms": [
+        {
+          "algorithm": "qstr",
+          "parameters": {
+            "preset": "gate_calibration"
+          }
+        },
+        {
+          "algorithm": "cma_es",
+          "parameters": {
+            "population_size": 25,
+            "initial_spread": 0.1,
+            "evaluate_initial_point": false
+          }
+        }
+      ],
+      "checkpoint_interval": 30,
+      "observation": {
+        "cost_per_evaluation": 25000,
+        "cost_unit": "shots"
+      },
+      "description": "Three-control calibration on the two-qubit device reconstruction, 25 circuits and 1000 shots per circuit.",
+      "physical_settings": {
+        "target_qubit": 0,
+        "initial_parameters": [
+          -0.054559463003214105,
+          0.08264154056073997,
+          -0.11956622745212653
+        ],
+        "circuits_per_evaluation": 25,
+        "validation_circuits": 4096,
+        "validation_seed": 9431057
+      },
+      "max_evaluations": 30,
+      "validation": {
+        "circuits": 32,
+        "quadrature_nodes": 8
+      }
+    },
+    "ising_state_transfer": {
+      "runtime": "pulse",
+      "algorithms": [
+        {
+          "algorithm": "qstr",
+          "parameters": {
+            "preset": "ising_state_transfer"
+          }
+        },
+        {
+          "algorithm": "dcrab",
+          "parameters": {
+            "amplitude_variation": 10
+          }
+        }
+      ],
+      "checkpoint_interval": 64,
+      "observation": {
+        "cost_per_evaluation": 1,
+        "cost_unit": "physical_propagations"
+      },
+      "description": "Five-qubit Ising state transfer with Gaussian coupling noise; 100 pulse bins and full dCRAB baseline.",
+      "physical_settings": {
+        "reported_objective_std": 0.1
+      },
+      "max_evaluations": 64,
+      "validation": {
+        "quadrature_nodes": 8,
+        "convergence_nodes": 4
+      }
+    }
+  }
+}

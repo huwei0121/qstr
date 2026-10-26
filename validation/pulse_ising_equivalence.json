@@ -1,0 +1,87 @@
+{
+  "seed": 7098473,
+  "cases": [
+    {
+      "problem": "pulse_calibration",
+      "method": "qstr",
+      "evaluations": 40,
+      "exact_points": true,
+      "exact_feedback": true,
+      "exact_native_return": true,
+      "exact_validation_quality": true
+    },
+    {
+      "problem": "pulse_calibration",
+      "method": "cma_es",
+      "evaluations": 40,
+      "exact_points": true,
+      "exact_feedback": true,
+      "exact_native_return": true,
+      "exact_validation_quality": true
+    },
+    {
+      "problem": "pulse_calibration",
+      "method": "nelder_mead",
+      "evaluations": 40,
+      "exact_points": true,
+      "exact_feedback": true,
+      "exact_native_return": true,
+      "exact_validation_quality": true
+    },
+    {
+      "problem": "pulse_calibration",
+      "method": "powell",
+      "evaluations": 40,
+      "exact_points": true,
+      "exact_feedback": true,
+      "exact_native_return": true,
+      "exact_validation_quality": true
+    },
+    {
+      "problem": "pulse_calibration",
+      "method": "differential_evolution",
+      "evaluations": 40,
+      "exact_points": true,
+      "exact_feedback": true,
+      "exact_native_return": true,
+      "exact_validation_quality": true
+    },
+    {
+      "problem": "pulse_calibration",
+      "method": "one_plus_one",
+      "evaluations": 40,
+      "exact_points": true,
+      "exact_feedback": true,
+      "exact_native_return": true,
+      "exact_validation_quality": true
+    },
+    {
+      "problem": "pulse_calibration",
+      "method": "simulated_annealing",
+      "evaluations": 40,
+      "exact_points": true,
+      "exact_feedback": true,
+      "exact_native_return": true,
+      "exact_validation_quality": true
+    },
+    {
+      "problem": "ising_state_transfer",
+      "method": "qstr",
+      "evaluations": 40,
+      "exact_points": true,
+      "exact_feedback": true,
+      "exact_native_return": true,
+      "exact_validation_quality": true
+    },
+    {
+      "problem": "ising_state_transfer",
+      "method": "dcrab",
+      "evaluations": 40,
+      "exact_points": true,
+      "exact_feedback": true,
+      "exact_native_return": true,
+      "exact_validation_quality": true
+    }
+  ],
+  "total_evaluations": 360
+}

@@ -1,0 +1,1 @@
+# Plotting requires no quantum simulator. Shared dependencies are in common.txt.

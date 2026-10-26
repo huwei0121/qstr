@@ -1,0 +1,43 @@
+{
+  "threads": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1"
+  },
+  "cases": [
+    {
+      "problem": "pulse_calibration",
+      "method": "qstr",
+      "evaluations": 1000,
+      "exact_points": true,
+      "exact_feedback": true,
+      "exact_native_return": true,
+      "exact_validation_quality": true,
+      "old_quality": 0.0002317789897920017,
+      "new_quality": 0.0002317789897920017,
+      "first_mismatch": null,
+      "seconds": 4.292560599977151
+    },
+    {
+      "problem": "ising_state_transfer",
+      "method": "qstr",
+      "evaluations": 2000,
+      "exact_points": true,
+      "exact_feedback": true,
+      "exact_native_return": true,
+      "exact_validation_quality": true,
+      "old_quality": 0.06966379026215577,
+      "new_quality": 0.06966379026215577,
+      "first_mismatch": null,
+      "seconds": 2.39505139994435
+    }
+  ],
+  "scope": "Full-budget comparison with the preserved 30-seed run at seed 7098473. Equal physical protocols, pinned numerical libraries and one numerical thread.",
+  "default_thread_diagnostic": {
+    "scope": "An earlier direct-API run did not constrain numerical thread counts before NumPy import; its full_budget folder is diagnostic, not the reference reproduction.",
+    "pulse_final_quality": 0.0003983092297915197,
+    "ising_final_quality": 0.04428199790655185,
+    "interpretation": "Low-order floating-point differences in linear algebra can change optimization trajectories. The public runner sets all four thread variables before importing numerical libraries."
+  }
+}

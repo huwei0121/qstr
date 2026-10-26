@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "qstr-benchmarks"
+version = "0.1.0"
+description = "Reproducible quantum parameter optimization experiments for Q-STR"
+requires-python = ">=3.10,<3.11"
+license = "BSD-3-Clause"
+license-files = ["LICENSE"]
+dependencies = ["qstr==0.1.0", "numpy==1.26.4", "scipy==1.11.4", "matplotlib==3.8.4"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["qstr_benchmarks*"]
+
+[tool.setuptools.package-data]
+qstr_benchmarks = ["**/*.json", "**/*.md", "**/*LICENSE*", "**/*NOTICE*", "**/*.txt"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+extend-exclude = ["third_party", "**/vendor", "solver", "data", "outputs", ".venvs"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]

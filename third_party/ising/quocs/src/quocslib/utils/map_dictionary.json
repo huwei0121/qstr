@@ -1,0 +1,57 @@
+{
+"opti_algorithm_map": {"AD":
+                          {"module_name": "quocslib.optimizationalgorithms.ADAlgorithm",
+                          "class_name": "ADAlgorithm"},
+                      "dCRAB":
+                          {"module_name": "quocslib.optimizationalgorithms.dCRABAlgorithm",
+                          "class_name": "dCRABAlgorithm"},
+                      "DirectSearch":
+                          {"module_name": "quocslib.optimizationalgorithms.DirectSearchAlgorithm",
+                          "class_name": "DirectSearchAlgorithm"},
+                      "GRAPE":
+                          {"module_name": "quocslib.optimizationalgorithms.GRAPEAlgorithm",
+                          "class_name": "GRAPEAlgorithm"}
+                        },
+"dsm_settings_map": {"NelderMead":
+                        {"module_name": "quocslib.gradientfreemethods.NelderMead",
+                        "class_name": "NelderMead"},
+                    "CMAES":
+                        {"module_name": "quocslib.gradientfreemethods.CMAES",
+                        "class_name": "CMAES"}
+},
+"basis_map": {"Chebyshev":
+                  {"module_name": "quocslib.pulses.basis.Chebyshev",
+                    "class_name": "Chebyshev"},
+              "ChoppedBasis":
+                  {"module_name": "quocslib.pulses.basis.ChoppedBasis",
+                  "class_name": "ChoppedBasis"},
+              "Fourier":
+                  {"module_name": "quocslib.pulses.basis.Fourier",
+                  "class_name": "Fourier"},
+              "PiecewiseBasis":
+                  {"module_name": "quocslib.pulses.basis.PiecewiseBasis",
+                  "class_name": "PiecewiseBasis"},
+              "Sigmoid":
+                  {"module_name": "quocslib.pulses.basis.Sigmoid",
+                  "class_name": "Sigmoid"},
+              "SigmoidTimeDep":
+                  {"module_name": "quocslib.pulses.basis.SigmoidTimeDep",
+                  "class_name": "SigmoidTimeDep"},
+              "SigmoidSigmas":
+                  {"module_name": "quocslib.pulses.basis.SigmoidSigmas",
+                  "class_name": "SigmoidSigmas"},
+              "SigmoidAllParas":
+                  {"module_name": "quocslib.pulses.basis.SigmoidAllParas",
+                  "class_name": "SigmoidAllParas"},
+              "Sinc":
+                  {"module_name": "quocslib.pulses.basis.Sinc",
+                  "class_name": "Sinc"},
+              "Walsh":
+                  {"module_name": "quocslib.pulses.basis.Walsh",
+                  "class_name": "Walsh"}
+              },
+"superparameter_distribution_map": {"Uniform":
+                        {"module_name": "quocslib.pulses.superparameter.Uniform",
+                        "class_name": "Uniform"}
+                    }
+}

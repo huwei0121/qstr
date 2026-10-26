@@ -1,0 +1,67 @@
+{
+  "runs": [
+    {
+      "problem": "gate_calibration",
+      "method": "qstr",
+      "seed": 7098473,
+      "status": "exact_match",
+      "nfev": 98,
+      "maximum_coordinate_difference": 0.0,
+      "budget_equal": true,
+      "coordinates_exact": true,
+      "observations_exact": true,
+      "returned_point_exact": true,
+      "initial_quality_exact": true,
+      "final_quality_exact": true,
+      "checkpoints_exact": true
+    },
+    {
+      "problem": "ising_state_transfer",
+      "method": "qstr",
+      "seed": 7098473,
+      "status": "exact_match",
+      "nfev": 2000,
+      "maximum_coordinate_difference": 0.0,
+      "budget_equal": true,
+      "coordinates_exact": true,
+      "observations_exact": true,
+      "returned_point_exact": true,
+      "initial_quality_exact": true,
+      "final_quality_exact": true,
+      "checkpoints_exact": true
+    },
+    {
+      "problem": "pulse_calibration",
+      "method": "qstr",
+      "seed": 7098473,
+      "status": "exact_match",
+      "nfev": 1000,
+      "maximum_coordinate_difference": 0.0,
+      "budget_equal": true,
+      "coordinates_exact": true,
+      "observations_exact": true,
+      "returned_point_exact": true,
+      "initial_quality_exact": true,
+      "final_quality_exact": true,
+      "checkpoints_exact": true
+    },
+    {
+      "problem": "qaoa_maxcut",
+      "method": "qstr",
+      "seed": 7098473,
+      "status": "exact_match",
+      "nfev": 511,
+      "maximum_coordinate_difference": 0.0,
+      "budget_equal": true,
+      "coordinates_exact": true,
+      "observations_exact": true,
+      "returned_point_exact": true,
+      "initial_quality_exact": true,
+      "final_quality_exact": true,
+      "checkpoints_exact": true
+    }
+  ],
+  "matched": 4,
+  "compared": 4,
+  "failed_or_missing": 0
+}

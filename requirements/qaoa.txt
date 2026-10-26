@@ -1,0 +1,13 @@
+numpy==1.26.4
+scipy==1.11.4
+cobyqa==1.1.4
+networkx==3.2.1
+qiskit==1.2.1
+qiskit-aer==0.15.1
+qiskit-algorithms==0.3.1
+Py-BOBYQA==1.5.0
+SQCommon==0.3.2
+SQImFil==0.3.7
+ibcdfo==1.0.0b1
+ipdb==0.13.13
+PyNomadBBO==4.4.0

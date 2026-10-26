@@ -1,0 +1,78 @@
+{
+  "cases": [
+    {
+      "method": "qstr",
+      "evaluations": 80,
+      "shots": 80000,
+      "coordinates_exact": true,
+      "observations_exact": true,
+      "count_histograms_exact": true,
+      "simulator_seeds_exact": true,
+      "native_endpoint_exact": true,
+      "checkpoint_recommendations_exact": true,
+      "final_quality_exact": true
+    },
+    {
+      "method": "anatra",
+      "evaluations": 80,
+      "shots": 80000,
+      "coordinates_exact": true,
+      "observations_exact": true,
+      "count_histograms_exact": true,
+      "simulator_seeds_exact": true,
+      "native_endpoint_exact": true,
+      "checkpoint_recommendations_exact": true,
+      "final_quality_exact": true
+    },
+    {
+      "method": "pybobyqa",
+      "evaluations": 80,
+      "shots": 80000,
+      "coordinates_exact": true,
+      "observations_exact": true,
+      "count_histograms_exact": true,
+      "simulator_seeds_exact": true,
+      "native_endpoint_exact": true,
+      "checkpoint_recommendations_exact": true,
+      "final_quality_exact": true
+    },
+    {
+      "method": "imfil",
+      "evaluations": 80,
+      "shots": 80000,
+      "coordinates_exact": true,
+      "observations_exact": true,
+      "count_histograms_exact": true,
+      "simulator_seeds_exact": true,
+      "native_endpoint_exact": true,
+      "checkpoint_recommendations_exact": true,
+      "final_quality_exact": true
+    },
+    {
+      "method": "nomad",
+      "evaluations": 80,
+      "shots": 80000,
+      "coordinates_exact": true,
+      "observations_exact": true,
+      "count_histograms_exact": true,
+      "simulator_seeds_exact": true,
+      "native_endpoint_exact": true,
+      "checkpoint_recommendations_exact": true,
+      "final_quality_exact": true
+    },
+    {
+      "method": "spsa",
+      "evaluations": 80,
+      "shots": 80000,
+      "coordinates_exact": true,
+      "observations_exact": true,
+      "count_histograms_exact": true,
+      "simulator_seeds_exact": true,
+      "native_endpoint_exact": true,
+      "checkpoint_recommendations_exact": true,
+      "final_quality_exact": true
+    }
+  ],
+  "all_passed": true,
+  "total_paired_evaluations": 480
+}

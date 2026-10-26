@@ -1,0 +1,14 @@
+# Python 3.10, CPU runtime. Run pip from the reproduction directory.
+numpy==1.26.4
+scipy==1.11.4
+cma==3.3.0
+cobyqa==1.1.4
+tensorflow==2.15.0
+tensorflow-probability==0.23.0
+tensorflow-estimator==2.15.0
+adaptive==0.14.0
+pandas==2.2.3
+hjson==3.1.0
+rich==15.0.0
+matplotlib==3.8.4
+./third_party/gate/c3_toolset

@@ -1,0 +1,170 @@
+Metadata-Version: 2.4
+Name: qstr
+Version: 0.1.0
+Summary: Structured derivative-free trust-region optimization for expensive quantum calibration
+License-Expression: BSD-3-Clause
+Keywords: optimization,derivative-free,quantum-control,trust-region
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Scientific/Engineering :: Physics
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy<3,>=1.26
+Requires-Dist: scipy<2,>=1.11
+Requires-Dist: cobyqa==1.1.4
+Provides-Extra: baselines
+Requires-Dist: cma<5,>=3.3; extra == "baselines"
+Provides-Extra: test
+Requires-Dist: pytest<9,>=8; extra == "test"
+Provides-Extra: dev
+Requires-Dist: pytest<9,>=8; extra == "dev"
+Requires-Dist: build<2,>=1.2; extra == "dev"
+Requires-Dist: ruff<1,>=0.9; extra == "dev"
+Dynamic: license-file
+
+# Q-STR
+
+**Quantum Structured Trust-Region optimization**
+
+Q-STR is a derivative-free optimizer for expensive scalar feedback. It combines
+quadratic trust-region models from COBYQA with structured search coordinates,
+bounded parameterizations, repeated measurements, and budget-aware restarts.
+
+The optimizer receives function values, bounds, and optional basis information.
+It does not require a device model or derivatives. A function call may represent
+one simulation, one group of randomized circuits, or a fixed measurement batch.
+
+## Installation
+
+Python 3.10 or later is required. From a local checkout:
+
+~~~console
+python -m pip install .
+~~~
+
+For development or optional comparison methods:
+
+~~~console
+python -m pip install -e ".[dev,baselines]"
+~~~
+
+The core dependencies are NumPy, SciPy, and COBYQA 1.1.4. The recorded numerical
+stack is listed in [requirements-reproducibility.txt](requirements-reproducibility.txt).
+Optional quantum simulators are supplied by the calling application.
+
+## Quick start
+
+~~~python
+import numpy as np
+from qstr import SolverOptions, minimize
+
+def objective(x):
+    return float(np.sum((x - 0.2) ** 2))
+
+result = minimize(
+    objective,
+    np.zeros(4),
+    max_evaluations=120,
+    bounds=(-np.ones(4), np.ones(4)),
+    seed=7,
+    options=SolverOptions(initial_radius=0.1, repetitions=1),
+)
+
+print(result.x, result.fun, result.nfev)
+record = result.to_dict()
+~~~
+
+Every objective call is charged, including initialization, repeated measurements,
+and restarts. The returned point minimizes the recorded observation-group means.
+Repeated visits form separate groups. Independent validation belongs to the application.
+
+## Structured coordinates and quantum problem presets
+
+A basis factory receives a stage index and random seed and returns an orthonormal
+matrix with one search direction per column. Returning None selects the original
+coordinates. A smooth anchored map keeps structured bounded proposals inside the box.
+
+| Preset | Variables | Coordinates | Feedback per evaluation |
+| --- | ---: | --- | --- |
+| pulse_calibration | 82 | DCT warmup, then mixed pulse directions | Log failure from 40 sampled circuits |
+| gate_calibration | 3 | Scaled controls with native bounds | Failure frequency from 25 circuits × 1000 shots |
+| qaoa_maxcut | 10 | Orthogonal layer coordinates | Negative cut expectation estimated with 1000 shots |
+| ising_state_transfer | 100 | Eight DCT and four random directions | One propagation with sampled coupling |
+
+~~~python
+from qstr import get_preset, minimize_with_preset
+
+settings = get_preset("qaoa_maxcut")
+# Supply a callable that evaluates the ten physical circuit angles:
+# result = minimize_with_preset(feedback, preset="qaoa_maxcut", seed=7)
+~~~
+
+Presets define coordinates and solver settings; they do not construct a simulator.
+The [API guide](docs/api.md) describes feedback units, bounds, results, and options.
+The [algorithm guide](docs/algorithm.md) explains the mathematical components.
+
+## Examples and comparison methods
+
+~~~console
+python examples/bounded_quadratic.py
+python examples/qaoa_maxcut.py --max-evaluations 80 --seed 7
+qstr presets
+qstr benchmark-plan benchmarks/four_problems.json
+~~~
+
+The QAOA example uses standalone statevector propagation and count sampling for
+the five-node complete bipartite MaxCut problem. Its random stream is local to
+the example; it does not reproduce archived simulator trajectories.
+
+qstr.baselines.minimize_reference provides counted wrappers for SciPy Nelder–Mead,
+SciPy Powell, and CMA-ES. It retains native returns separately from best observed
+points. The full study's comparison sets are described in
+[benchmarks/four_problems.json](benchmarks/four_problems.json).
+A printed benchmark plan does not launch simulations.
+
+## Development
+
+~~~console
+python -m pytest tests/test_qstr_solver.py tests/test_qstr_presets.py tests/test_qstr_baselines.py tests/test_qstr_package.py
+python -m ruff check src/qstr tests/test_qstr_solver.py tests/test_qstr_presets.py tests/test_qstr_baselines.py tests/test_qstr_package.py examples tools
+python -m build
+python tools/check_distribution.py dist
+~~~
+
+The installable namespace is qstr. Modules are named by responsibility:
+
+~~~text
+src/qstr/
+    solver.py        # Search stages and evaluation accounting
+    options.py       # Typed and validated solver settings
+    result.py        # Results, histories, and observation groups
+    coordinates.py   # Bounded coordinate maps
+    bases.py         # Pulse and circuit search directions
+    presets.py       # Four problem configurations
+    baselines.py     # Counted reference optimizers
+    cli.py           # Preset listing and benchmark planning
+docs/                # API, algorithm, and development guides
+examples/            # Standalone executable examples
+benchmarks/          # Portable problem and comparison specifications
+~~~
+
+The surrounding research checkout retains frozen implementations, raw measurements,
+and exploratory scripts. These assets are excluded from the wheel and source
+distribution. See [docs/development.md](docs/development.md) for conventions.
+
+## References and license
+
+The method uses [COBYQA](https://github.com/cobyqa/cobyqa) as its numerical engine.
+Quantum problem sources include [ORBIT](https://arxiv.org/abs/1403.0035),
+[quantum calibration benchmarks](https://arxiv.org/abs/2509.08555),
+[C³](https://arxiv.org/abs/2009.09866),
+[ANATRA](https://arxiv.org/abs/2401.10121), and
+[QuOCS](https://arxiv.org/abs/2212.11144).
+See [docs/references.md](docs/references.md) for their roles.
+
+Q-STR is distributed under the [BSD 3-Clause License](LICENSE).
+External dependencies retain their own licenses.
